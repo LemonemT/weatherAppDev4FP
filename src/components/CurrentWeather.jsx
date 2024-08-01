@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
-
 import MyLocationIcon from "@mui/icons-material/MyLocation";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { DataContext } from "../context/dataContext";
 import { Modal } from "./subComponents/Modal";
+
 export const CurrentWeather = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -20,8 +20,8 @@ export const CurrentWeather = () => {
   const handleModal = () => {
     setIsOpen(!isOpen);
   };
-
-  const ICONURL = `http://openweathermap.org/img/wn/${iconId}@4x.png`;
+  
+  const ICONURL = `/icons/${iconId}@4x.png`;
 
   return (
     <section
@@ -45,13 +45,13 @@ export const CurrentWeather = () => {
       </nav>
       <section>
         <img
-          src={`background.png`}
-          alt="image"
+          src={`/background.png`}
+          alt="background"
           className="w-full opacity-5 absolute bg-cover bg-center left-0"
         />
         <img
           src={ICONURL}
-          alt="image"
+          alt="weather icon"
           className="max-w-[250px] w-full mx-auto"
         />
       </section>
@@ -60,7 +60,7 @@ export const CurrentWeather = () => {
         <div className="font-display font-medium text-gray-100 text-8xl ">
           {temp}
           <span className="font-medium text-gray-500 text-5xl">
-            {unit == "imperial" ? <>&#8457;</> : <>&#8451;</>}
+            {unit === "imperial" ? <>&#8457;</> : <>&#8451;</>}
           </span>
         </div>
         <div className="font-display font-semibold text-4xl text-gray-500 text-center">

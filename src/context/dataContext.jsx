@@ -28,7 +28,7 @@ export const DataContextProvider = ({ children }) => {
   const getReverseGeoCordinate = async ({ lat, lon }) => {
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=cd3a425304d02735c79429500819f184`
+        `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=613ed1e3095f6b322fcc624c88a657e9`
       );
       const results = await response.json();
       console.log("results", results);
@@ -72,7 +72,7 @@ export const DataContextProvider = ({ children }) => {
     const getWeather = async () => {
       try {
         const response = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=${unit}&appid=cd3a425304d02735c79429500819f184`
+          `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=${unit}&appid=613ed1e3095f6b322fcc624c88a657e9`
         );
         const result = await response.json();
         setTemp(Math.round(result.main.temp));
@@ -102,7 +102,7 @@ export const DataContextProvider = ({ children }) => {
     const getForecast = async () => {
       try {
         const response = await fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=${unit}&appid=cd3a425304d02735c79429500819f184`
+          `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=${unit}&appid=613ed1e3095f6b322fcc624c88a657e9`
         );
         const data = await response.json();
         const list = data?.list.map((item) => {

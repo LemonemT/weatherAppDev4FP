@@ -122,9 +122,9 @@ export const ForcastHighlights = () => {
                 Visibility
               </div>
               <span className="text-gray-100 font-display font-bold text-6xl">
-                {Math.round(visibility / 1000)}{" "}
+                {Math.round(visibility / 1609)}{" "}
                 <span className="text-gray-100 font-display font-normal text-4xl">
-                  Km
+                  Miles
                 </span>
               </span>
             </div>
@@ -138,7 +138,7 @@ export const ForcastHighlights = () => {
               <span className="text-gray-100 font-display font-bold text-6xl">
                 {airPressure}{" "}
                 <span className="text-gray-100 font-display font-normal text-4xl">
-                  mbr
+                  mb
                 </span>
               </span>
             </div>
