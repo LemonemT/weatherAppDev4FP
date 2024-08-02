@@ -20,12 +20,11 @@ export const CurrentWeather = () => {
   const handleModal = () => {
     setIsOpen(!isOpen);
   };
-  
   const ICONURL = `/icons/${iconId}@4x.png`;
 
   return (
     <section
-      className="md:w-[31%] lg:w-[24%] xl:w-[31%] relative h-full p-5"
+      className="md:w-[31%] lg:w-[24%] xl:w-[29%] relative h-full p-5"
       style={{ backgroundColor: "#1e213a" }}
     >
       <nav className="w-full flex justify-between mt-[20px]">

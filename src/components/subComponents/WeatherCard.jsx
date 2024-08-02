@@ -5,7 +5,8 @@ import { getDay } from "../../helper";
 export const WeatherCard = ({ info, index }) => {
   const { unit } = useContext(DataContext);
 
-  const ICONURL = `/icons/${info.weather[0].icon}@4x.png`;
+  const iconId = info.weather[0].icon.replace('n', 'd');
+  const ICONURL = `/icons/${iconId}@4x.png`;
 
   return (
     <div
@@ -14,21 +15,18 @@ export const WeatherCard = ({ info, index }) => {
     >
       <div className="flex flex-col items-center justify-center">
         <div className="text-gray-100 text-base font-display font-medium ">
-          {index === 1 ? "Tomorrow" : getDay(info.dt)}
+          {index == 1 ? "Tomorrow" : getDay(info.dt)}
         </div>
-        <img
-          src={ICONURL}
-          alt="weather icon"
-        />
+        <img  src={ICONURL} alt="weather icon"/>
       </div>
       <div>
         <span className="mr-4 text-gray-100 text-base font-display font-medium">
           {Math.ceil(info.main.temp_max)}
-          {unit === "imperial" ? <>&#8457;</> : <>&#8451;</>}
+          {unit == "imperial" ? <>&#8457;</> : <>&#8451;</>}
         </span>
         <span className="text-gray-500 text-base font-display font-medium">
           {Math.floor(info.main.temp_min)}
-          {unit === "imperial" ? <>&#8457;</> : <>&#8451;</>}
+          {unit == "imperial" ? <>&#8457;</> : <>&#8451;</>}
         </span>
       </div>
     </div>

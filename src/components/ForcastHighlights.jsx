@@ -20,7 +20,7 @@ export const ForcastHighlights = () => {
   return (
     <>
       <section
-        className="p-[8%] pt-[20px] md:w-[71%] lg:w-[76%] xl:w-[69%] md:h-full overflow-y-scroll md:px-[8%] lg:px-[5%] xl:px-[7%] pb-9"
+        className="p-[8%] pt-[20px] md:w-[71%] lg:w-[76%] xl:w-[75%] md:h-full overflow-y-scroll md:px-[8%] lg:px-[5%] xl:px-[7%] pb-9"
         style={{ backgroundColor: "#100E1D" }}
       >
         <div className="w-full">
