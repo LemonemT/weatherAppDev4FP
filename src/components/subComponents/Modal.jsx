@@ -10,15 +10,16 @@ export const Modal = ({ handleModal }) => {
   const [searchInput, setSearchInput] = useState("");
   const [searchOptions, setSearchOptions] = useState(null);
 
-  console.log("locationArray", locationArray);
   const handleSubmit = () => {
     setLocation(searchInput);
     handleModal();
   };
+
   const handleChange = (e) => {
     getSearchOptions(e.target.value);
     setSearchInput(e.target.value);
   };
+
   const onRecentSearchClick = (item) => {
     setLocation(item);
     handleModal();
@@ -30,8 +31,6 @@ export const Modal = ({ handleModal }) => {
         `http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=6d381d289698628fa8be22cc0edc51fc`
       );
       const data = await response.json();
-      console.log("searchData", data);
-
       setSearchOptions(data);
     } catch (error) {
       console.error(error);
@@ -44,7 +43,7 @@ export const Modal = ({ handleModal }) => {
       style={{ backgroundColor: "#1e213a" }}
     >
       <button
-        className="w-8 h-8 text-gray-100 float-right "
+        className="w-8 h-8 text-gray-100 float-right"
         onClick={handleModal}
       >
         <CloseIcon />
@@ -56,7 +55,7 @@ export const Modal = ({ handleModal }) => {
         <input
           className="p-3 pl-12 mr-2 w-full bg-transparent border border-gray-100 text-gray-100 outline-none"
           type="text"
-          name="serach"
+          name="search"
           id="search"
           placeholder="Search Location"
           value={searchInput}
@@ -77,8 +76,9 @@ export const Modal = ({ handleModal }) => {
       <ul className="mt-12">
         {locationArray &&
           locationArray.length > 0 &&
-          locationArray.map((item) => (
+          locationArray.map((item, index) => (
             <li
+              key={index}
               className="h-[64px] hover:cursor-pointer"
               onClick={() => onRecentSearchClick(item)}
             >
