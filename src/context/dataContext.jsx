@@ -18,12 +18,18 @@ export const DataContextProvider = ({ children }) => {
   const [airPressure, setAirPressure] = useState("");
   const [todays, setTodays] = useState("");
   const [list, setList] = useState([]);
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState("London"); // Default location set to London
   const [locationArray, setLocationArray] = useState(
     localStorage.getItem("locations")
       ? JSON.parse(localStorage.getItem("locations"))
-      : []
+      : ["Barcelona", "Long Island"] // Default locations
   );
+
+  useEffect(() => {
+    if (!localStorage.getItem("locations")) {
+      localStorage.setItem("locations", JSON.stringify(["Barcelona", "Long Island"]));
+    }
+  }, []);
 
   const getReverseGeoCordinate = async ({ lat, lon }) => {
     try {
@@ -31,7 +37,6 @@ export const DataContextProvider = ({ children }) => {
         `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=613ed1e3095f6b322fcc624c88a657e9`
       );
       const results = await response.json();
-      console.log("results", results);
       setLocation(results && results[0]?.name);
     } catch (error) {
       console.error(error);

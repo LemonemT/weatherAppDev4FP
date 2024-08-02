@@ -148,7 +148,7 @@ export const ForcastHighlights = () => {
             <span className="text-gray-500 font-bold  text-sm underline">
               <a>Lenin Torres </a>{" "}
             </span>
-            <a>@ devChallenges.io</a>
+            
           </footer>
         </div>
       </section>
