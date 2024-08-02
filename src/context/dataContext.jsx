@@ -22,7 +22,7 @@ export const DataContextProvider = ({ children }) => {
   const [locationArray, setLocationArray] = useState(
     localStorage.getItem("locations")
       ? JSON.parse(localStorage.getItem("locations"))
-      : ["Barcelona", "Long Island"]
+      : ["Barcelona", "Long Island", "Cotundo", "Quito, Pichincha"]
   );
 
   const getReverseGeoCordinate = async ({ lat, lon }) => {
